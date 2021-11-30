@@ -1,0 +1,678 @@
+/* import package */
+
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+/* ------------------- */
+
+
+/* Custom properties   */
+
+
+/* ------------------- */
+
+:root {
+    /* colors */
+    --moderate-cyan: 176 50% 47%;
+    --dark-cyan: 176 72% 28%;
+    --black: 0 0% 0%;
+    --dark-gray: 0 0% 48%;
+    --white: 0 100% 100%;
+    /* font-sizes */
+    --fs-700: 3.5rem;
+    --fs-500: 2rem;
+    --fs-400: 1.125rem;
+    /* font-families */
+}
+
+
+/* ------------------- */
+
+
+/* Reset               */
+
+
+/* ------------------- */
+
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* set up the body */
+
+html,
+body {
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-size: 16px;
+    font-family: 'Commissioner', sans-serif;
+    width: 100vw;
+}
+
+
+/* make images easier to work with */
+
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* make form elements easier to work with */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* remove animations for people who've turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ------------------- */
+
+
+/* Utility classes     */
+
+
+/* ------------------- */
+
+
+/* general */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.container {
+    padding-inline: 2em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
+}
+
+.moderate-cyan-bg {
+    background-color: hsl(var(--moderate-cyan));
+}
+
+.dark-cyan-bg {
+    background-color: hsl(var(--dark-cyan));
+}
+
+.black-bg {
+    background-color: hsl(var(--black));
+}
+
+.dark-gray-bg {
+    background-color: hsl(var(--dark-gray));
+}
+
+.white-bg {
+    background-color: hsl(var(--white));
+}
+
+.moderate-cyan-ff {
+    color: hsl(var(--moderate-cyan));
+}
+
+.dark-cyan-ff {
+    color: hsl(var(--dark-cyan));
+}
+
+.black-ff {
+    color: hsl(var(--black));
+}
+
+.dark-gray-ff {
+    color: hsl(var(--dark-gray));
+}
+
+.white-ff {
+    color: hsl(var(--white));
+}
+
+.fs-400 {
+    font-weight: 400;
+    font-size: var(--fs-400);
+}
+
+.fs-500 {
+    font-weight: 500;
+    font-size: var(--fs-500);
+}
+
+.fs-700 {
+    font-weight: 700;
+    font-size: var(--fs-700);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.opacity {
+    opacity: 0.6;
+}
+
+.letter-spacing {
+    letter-spacing: 2px;
+}
+
+.letter-spacing-sm {
+    letter-spacing: 1px;
+}
+
+
+/* Component */
+
+.primary--header {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    margin: 1rem;
+}
+
+nav {
+    position: absolute;
+}
+
+.primary--navigation {
+    position: fixed;
+    width: 90%;
+    padding-block: 2rem;
+    border-radius: 0.5rem;
+    top: 2rem;
+    left: 1rem;
+    margin: 1rem auto;
+    z-index: 100;
+}
+
+.primary--navigation a {
+    padding-inline-start: 2rem;
+}
+
+.primary--navigation li {
+    padding-block: 0.2rem;
+    list-style: none;
+    border-bottom: 2px solid hsl(var(--dark-gray)/0.1);
+}
+
+.mobile-nav-toggle {
+    background-color: transparent;
+    border: none;
+    background-image: url(./images/icon-hamburger.svg);
+    height: 64px;
+    width: 64px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-right: clamp(0.2rem, 1vw, 1rem);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./images/icon-close-menu.svg);
+}
+
+.main-content {
+    --gap: 0rem;
+    grid-template-columns: minmax(0.1rem, 1fr) minmax(15rem, 40rem) minmax(0.1rem, 1fr);
+    row-gap: 1.8rem;
+}
+
+main {
+    overflow: scroll;
+    padding-block: 17rem 2rem;
+}
+
+.card {
+    position: relative;
+    max-width: 32rem;
+    grid-column: 2;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.min-card {
+    width: 100%;
+    position: relative;
+    max-width: 30rem;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin: 0 auto;
+    flex: none
+}
+
+.save-button {
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    padding: 1.7rem;
+    background-image: url(./images/icon-bookmark.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 8rem;
+    position: relative;
+    z-index: 12;
+}
+
+.save-button>* {
+    background-color: hsl(var(--black)/0.1);
+    position: absolute;
+    width: 10rem;
+    padding: 0.8rem 1rem;
+    border-radius: 2rem;
+    z-index: 9;
+    top: 0.2rem;
+    left: 1.5rem;
+}
+
+.save-button:focus {
+    filter: invert(63%) sepia(42%) saturate(578%) hue-rotate(127deg) brightness(90%) contrast(88%);
+}
+
+.save-button:focus>* {
+    background-color: hsl(var(--black)/0.1);
+}
+
+.button-cyan {
+    max-width: var(--mw, 8rem);
+    max-height: 4rem;
+    padding: 1rem 1rem;
+    border-radius: 5rem;
+    transition: all 500ms ease-in-out;
+}
+
+.button-cyan:hover,
+.button-cyan:focus {
+    background-color: hsl(var(--dark-cyan));
+}
+
+.card--navigation {
+    justify-content: space-between;
+}
+
+.linebreak {
+    height: 2px;
+    width: 28%;
+    background: hsl(var(--black)/0.1);
+    margin: 0 auto;
+}
+
+.linebreak-vertical {
+    height: 2px;
+    width: 100%;
+    background: hsl(var(--black)/0.1);
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 1em;
+    background-color: hsl(var(--black)/0.1);
+    border-radius: 2rem;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    background: hsl(var(--moderate-cyan));
+    left: 0;
+    height: 1em;
+    width: 80%;
+    border-radius: 2rem;
+}
+
+.content {
+    --gap: 1.5rem;
+}
+
+.bottom--info {
+    display: grid;
+    gap: 1rem;
+}
+
+.menu-card,
+.none-menu-card {
+    text-align: left;
+    width: 100%;
+    position: relative;
+    max-width: 40ch;
+    min-height: 30em;
+    padding: 1.5rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin: 0 auto;
+    flex: none
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 2em;
+    height: 2em;
+    border-color: hsl(var(--black)/0.15);
+}
+
+.pledge {
+    border: 2px solid hsl(var(--black)/0.15);
+    width: 5.4rem;
+    height: 3.5rem;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 9;
+}
+
+.pledge-label {
+    position: relative;
+}
+
+.pledge-label::after {
+    z-index: 10;
+    position: absolute;
+    content: '$';
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 3rem;
+    font-weight: bold;
+    color: hsl(var(--black)/0.2);
+    left: 0.7rem;
+    top: 0.55rem;
+}
+
+.pledge--info {
+    --gap: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0) scale(0, 0);
+    z-index: 1000;
+    width: 110%;
+    transition: transform 500ms ease-in-out;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.payment {
+    display: none;
+}
+
+.thankcard {
+    text-align: left;
+    width: 100%;
+    position: relative;
+    max-width: 40ch;
+    min-height: 30em;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(0, 0);
+    transition: transform 100ms ease-in-out;
+}
+
+.thankcard>* {
+    justify-self: center;
+}
+
+.thankcard[data-visible="false"] {
+    transform: translate(-50%, 50%) scale(0, 0);
+}
+
+.thankcard[data-visible="true"] {
+    transform: translate(-50%, 50%) scale(1, 1);
+}
+
+@media (min-width:35rem) {
+    .primary--header {
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        align-items: center;
+    }
+    .mobile-nav-toggle {
+        display: none;
+    }
+    .primary--navigation {
+        position: relative;
+        flex-direction: row;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        top: 0;
+    }
+    .primary--navigation a {
+        color: hsl(var(--white));
+        font-weight: 400;
+    }
+    nav {
+        position: relative;
+        min-width: 30rem;
+    }
+    .card {
+        max-width: 40rem;
+    }
+    main {
+        overflow: scroll;
+        scroll-behavior: smooth;
+        padding-top: clamp(15rem, 20vh, 30rem);
+    }
+    .linebreak {
+        height: 4rem;
+        width: 2px;
+        background: hsl(var(--black)/0.1);
+        margin: 0 auto;
+    }
+    .content {
+        --gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "text1 br1 text2 br2 text3" "processbar processbar processbar processbar processbar";
+    }
+    .content p {
+        font-size: 0.8rem;
+    }
+    .content .linebreak:nth-child(1) {
+        grid-area: br1;
+    }
+    .content .linebreak:nth-child(2) {
+        grid-area: br2;
+    }
+    #text1 {
+        grid-area: text1;
+    }
+    #text2 {
+        grid-area: text2;
+    }
+    #text3 {
+        grid-area: text3;
+    }
+    .progress-bar {
+        grid-area: processbar;
+    }
+    .min-card {
+        max-width: 50rem;
+    }
+    .primary--navigation li {
+        border: none;
+    }
+    .bottom--info {
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu-card {
+        --gap: 1rem;
+        column-gap: 0rem;
+        width: 100%;
+        max-width: 50rem;
+        min-height: 15rem;
+        grid-template-columns: 5.8fr 1fr;
+        grid-template-areas: "title span" "main-menu main-menu" "line line" "foot foot";
+    }
+    .none-menu-card {
+        --gap: 1rem;
+        width: 100%;
+        max-width: 50rem;
+        min-height: 15rem;
+    }
+    .title {
+        display: flex;
+        grid-area: title;
+        align-items: center;
+    }
+    .span {
+        justify-self: self-end;
+        grid-area: span;
+    }
+    .menu--content {
+        grid-area: main-menu;
+    }
+    .linebreak-vertical {
+        grid-area: line;
+    }
+    .payment {
+        display: none;
+        justify-content: space-between;
+        grid-area: foot;
+        align-items: center;
+    }
+}
+
+@media (max-width:35rem) {
+    .primary--navigation {
+        flex-direction: column;
+        background-color: hsl(var(--white));
+        transition: transform 500ms ease-in-out;
+        transform: translateX(110%);
+    }
+    .primary--navigation[data-visible="true"] {
+        transform: translateX(0%);
+    }
+    .save-button {
+        margin: 0;
+    }
+    .save-button>* {
+        display: none;
+    }
+}
+
+
+/* body */
+
+body {
+    background-image: url(./images/image-hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+@media (min-width:35rem) {
+    body {
+        background-image: url(./images/image-hero-desktop.jpg);
+    }
+}
+
+
+/* Popup */
+
+.secondary-menu {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    background-image: url(./images/icon-close-modal.svg);
+    height: 1.5rem;
+    width: 1.5rem;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.radio-card {
+    align-items: center;
+}
